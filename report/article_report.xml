@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <report
+            id="report_article_template"
+            string="Article (PDF)"
+            model="product.template"
+            report_type="qweb-pdf"
+            name="article_print_template.report_article_template"
+            file="article_print_template.report_article_template"
+            print_report_name="'Article - %s' % (object.name)"
+            paperformat="article_print_template_format"
+        />
+    </data>
+</odoo>

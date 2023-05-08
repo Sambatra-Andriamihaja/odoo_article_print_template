@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Model -->
+        <template id="report_simple_article_template">
+            <!-- Header -->
+            <header>
+                <div class="row" style="background-color: #FFC000;">
+                    <div class="col-4" style="text-align: left;">
+                        <style>
+                            h2 {
+                                position: relative;
+                                color: #C55049;
+                            }
+                            .title-large {
+                                font-size: 12px;
+                                font-weight: 900;
+                                position: absolute;
+                                top: 6px;
+                                left: 5px;
+                            }
+                            .title-small {
+                                font-size: 9px;
+                                font-weight: 900;
+                                position: absolute;
+                                top: 20px;
+                                left: 10px;
+                            }
+                        </style>
+                        <div class="row">
+                            <img src="/article_print_template/static/img/CHEINMALT.png" style="width: 50px; display: flex;"/>
+                            <h2>
+                                <span class="title-large">CHEINMALT</span>
+                                <span class="title-small">DISTRIBUTION</span>
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="col-4" style="padding-top: 10px; text-align: center;">
+                        <span style="font-size: 16px; color: #545454; font-weight: 900;" t-field="product.default_code"/>
+                    </div>
+                    <div class="col-4" style="text-align: right;">
+                        <img src="/article_print_template/static/img/vendor-1.jpg" style="height: 35px; margin-top: 2px; margin-right: -13px;"/>
+                    </div>
+                </div>
+            
+                <div class="row" style="height: 20px;">
+                    <div class="col-12" style="text-align: center; vertical-align: middle; 
+                                        background-image: url('/article_print_template/static/img/background.png'); 
+                                        background-size: cover;
+                                        background-position: center 0px;">
+                        <p style="font-size:10px; font-weight: bold; color: #fff; padding-top: 4px;" t-field="product.name"/>
+                    </div>
+                </div>
+            </header>
+            <!-- Body -->
+            <div class="body">
+                <div class="row" style="padding-top: 5px;
+                                        height: 360px;
+                                        background-image: url('/article_print_template/static/img/background.png'); 
+                                        background-size: cover;
+                                        background-position: center -168px;
+                                        background-repeat: no-repeat;">
+                    <!-- Left column for the product card -->
+                    <!--<div class="col-7" style="background-color: #87821C;">-->
+                    <div class="col-7">
+                        <div style="background-color: #fff; text-align: center; height: 200px; width: 420px; margin-left: -8px">
+                            <img t-if="product.image_1920" t-att-src="'data:image/png;base64,'+product.image_1920.decode('utf-8')" class="img-fluid" alt="product.name" style="width: 35%; padding-top: 25px;"/>
+                            <img t-if="not product.image_1920" t-att-src="'/web/image/product.product/' + str(product.id) + '/image_1920'" class="img-fluid" alt="Product Image" style="width: 35%; padding-top: 25px;"/>
+                        </div>
+                        <div class="row">
+                            <div class="col-5 prices">
+                                <span style="color: #FFC000; font-size: 20px; font-weight: 900;">PRIX AR HT</span>
+                            </div>
+                            <div class="col-7 prices-value">
+                                <span style="color: #fff; font-size: 20px; font-weight: 900;" t-field="product.price_excl_vat" t-options='{"widget": "float", "precision": 2}'/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5 prices">
+                                <span style="color: #CC2D1A; font-size: 15px; font-weight: 900;">-REMISE 0,00%</span>
+                            </div>
+                            <div class="col-7 prices-value">
+                                <t t-if="float(product.discount) == 0">
+                                    <span style="color: #fff; font-size: 15px; font-weight: 900;">-</span>
+                                </t>
+                                <t t-if="float(product.discount) > 0">
+                                    <span style="color: #fff; font-size: 15px; font-weight: 900;" t-field="product.discount" t-options='{"widget": "float", "precision": 2}'/>
+                                </t>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5 prices">
+                                <span style="color: #CC2D1A; font-size: 15px; font-weight: 900;">TVA 20%</span>
+                            </div>
+                            <div class="col-7 prices-value">
+                                <span style="color: #fff; font-size: 15px; font-weight: 900;" t-field="product.vat" t-options='{"widget": "float", "precision": 2}'/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5 prices">
+                                <span style="color: #FFC000; font-size: 20px; font-weight: 900;">PRIX AR TTC</span>
+                            </div>
+                            <div class="col-7 prices-value">
+                                <span style="color: #FCE012; font-size: 20px; font-weight: 900;" t-field="product.total_price" t-options='{"widget": "float", "precision": 2}'/>
+                            </div>
+                        </div>
+                    <style>
+                        .prices {
+                            margin-left: 5px;
+                            width: 170px;
+                            text-align: center;
+                            vertical-align: middle;
+                        }
+                        .prices-value {
+                            background: rgba(255, 255, 255, .65);
+                            text-align: right;
+                            border: 1px solid rgba(0, 0, 0, 0.15);
+                        }
+                    </style>
+                    </div>
+                    <!-- Right column for the product description -->
+                    <!--<div class="col-5" style="height: 100%; background-color: #8C8A65; display: flex; align-items: center; justify-content: center;">-->
+                    <!--<div class="col-5" style="height: 100%; background-color: #8C8A65; text-align: center; display: flex; align-items:center;">-->
+                    <div class="col-5" style="height: 100%; margin-top: 92px; text-align: center; display: flex; align-items:center; justify-content: center;">
+                        <div class="description-content">
+                            <span style="color: #FFF; font-size: 10px; display: inline-block; vertical-align: middle;" t-if="product.description" t-field="product.description"/>
+                        </div>
+                    </div>                        
+                </div>
+            </div>
+            <!-- Footer -->
+            <footer>
+                <div class="row" style="background-color: #000;">
+                    <div class="col-12">
+                        <p style="font-size:9px; color: #FFF;">
+                            <i style="padding-left: 40px">Tarif établi en fonction du cours de devises du jour. Prix susceptible de changement sans préavis. <span style="color: #edd400; position: absolute; right: 40px; "><t t-esc="time.strftime('%d/%m/%Y')"/></span></i>
+                        </p>
+                    </div>                    
+                </div>
+                <div class="row" style="background-color: #FFC000; text-align: left; height: 92px;">
+                    <img class="img-vendor" src="/article_print_template/static/img/vendor-2.png" style="width: 50px;"/>
+                    <img class="img-vendor" src="/article_print_template/static/img/vendor-3.png" style="width: 50px;"/>
+                    <img class="img-vendor" src="/article_print_template/static/img/vendor-4.png" style="width: 50px;"/>
+                    <img class="img-vendor" src="/article_print_template/static/img/vendor-5.png" style="width: 50px;"/>
+                    <img class="img-vendor" src="/article_print_template/static/img/vendor-6.jpg" style="width: 50px;"/>
+                    <img class="img-vendor" src="/article_print_template/static/img/vendor-7.png" style="width: 50px;"/>
+                    <img class="img-vendor" src="/article_print_template/static/img/vendor-8.png" style="width: 50px;"/>
+                    <style>
+                        .img-vendor {
+                            margin-left: 20px;
+                        }
+                    </style>
+                </div>
+            </footer>
+        </template>
+
+        <!-- Template implementing the model -->
+        <template id="report_article_template">
+            <t t-call="web.basic_layout">
+                <div class="page">
+                    <!--
+                    <style>
+                        .page {
+                            background-image: url('/article_print_template/static/img/background.png');
+                            background-size: cover;
+                            background-position: center center;
+                            background-repeat: no-repeat;
+                            background-blend-mode: multiply;
+                        }                        
+                    </style>
+                    -->
+                    <!--
+                    <style>
+                        .page {
+                            width: 100%;
+                            height: 100%;
+                            background-color: yellow;
+                        }             
+                    </style>
+                    -->
+                    <t t-foreach="docs" t-as="product">
+                        <t t-call="article_print_template.report_simple_article_template">
+                            <t t-set="time" t-value="time"/>
+                        </t>
+                    </t>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

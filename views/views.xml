@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Action of the product menu -->
+    <record id="action_report_article" model="ir.actions.act_window">
+        <field name="name">Product report</field>
+        <field name="res_model">article.print.template</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+    <menuitem id="report_root" name="article_print_template" sequence="0" web_icon="article_print_template,static/description/icon.png"/>
+    <menuitem id="report_product" name="Product report" parent="report_root" action="action_report_article"/>
+</odoo>
