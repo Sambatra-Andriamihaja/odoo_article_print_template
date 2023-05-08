@@ -3,7 +3,7 @@
 </div>
 
 
-# article_print_template
+# Article Print Template
 <p>
     <b><i>article_print_template</i></b> : A customized article print template
     </br>
@@ -24,7 +24,7 @@
 <div align="center">
     <img src="assets/img/odoo.svg" alt="Odoo" width="50px"/>
     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original-wordmark.svg" alt="python" width="50px;"/>
-    <img src="https://www.flaticon.com/free-icons/xml" alt="xml" width="50px;"/>
+    <img src="assets/img/xml.png" alt="xml" width="50px;"/>
 </div>
           
 
