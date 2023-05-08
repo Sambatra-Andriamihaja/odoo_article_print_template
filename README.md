@@ -3,9 +3,9 @@
 </div>
 
 
-# odoo_article_print_template
+# article_print_template
 <p>
-    <b><i>odoo_article_print_template</i></b> : A customized article print template
+    <b><i>article_print_template</i></b> : A customized article print template
     </br>
     <b><i>Author</i></b> : Sambatra-Andriamihaja
 </p>
@@ -22,8 +22,8 @@
 
 </br>
 <div align="center">
-    <img src="assets/img/odoo.svg" alt="Odoo" />
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original-wordmark.svg" alt="python" width="50px";>
+    <img src="assets/img/odoo.svg" alt="Odoo" width="50px"/>
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original-wordmark.svg" alt="python" width="50px;"/>
     <img src="https://www.flaticon.com/free-icons/xml" alt="xml" width="50px;"/>
 </div>
           
